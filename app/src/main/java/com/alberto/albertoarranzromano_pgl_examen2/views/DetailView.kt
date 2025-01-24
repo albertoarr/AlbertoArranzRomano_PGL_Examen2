@@ -52,7 +52,6 @@ fun DetailView(navController: NavController, id:Int, opcional: String) {
 // Segunda vista
 @Composable
 fun DetailHomeView(navController: NavController, id: Int, opcional: String) {
-
     TitleView(name = "DetailView")
     //id
     Text(text = id.toString())
@@ -60,10 +59,12 @@ fun DetailHomeView(navController: NavController, id: Int, opcional: String) {
     Text(text = opcional)
     Column{
         // Botón para volver a Home sin revisar el Stack
-        NavigationButton("Ir a Home", Color.LightGray, Color.Black, {
+        NavigationButton("Ir a Home",
+            Color.LightGray,
+            Color.Black,
+            onClick = {
             navController.navigate("Home")
-        }) {
-            navController.navigate("")
-        }
+        })
+
     }
 }

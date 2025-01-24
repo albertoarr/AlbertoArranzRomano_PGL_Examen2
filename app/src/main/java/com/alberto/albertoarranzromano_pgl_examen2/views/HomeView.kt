@@ -68,13 +68,9 @@ fun ContentHomeView(navController: NavController) {
         NavigationButton(
             name = "Crear Lista",
             backColor = background1,
-            color = alumno1,
-            {
-                // Los parámetros se envían a la ruta para que se muestre el DetailView
-                navController.navigate("numbers")
-            }
+            color = alumno1
         ) {
-            navController.navigate("")
+            navController.navigate("Numbers")
         }
     }
 }

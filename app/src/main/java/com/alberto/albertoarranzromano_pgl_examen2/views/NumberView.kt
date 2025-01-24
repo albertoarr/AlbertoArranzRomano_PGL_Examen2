@@ -61,11 +61,13 @@ fun DetailNumberView(navController: NavController) {
                 name = number.toString(),
                 backColor = Color.Green,
                 color = Color.Black,
-                onClick = { id=number }
-            ) {
-                opcional = numbers[number]
-                navController.navigate("Detail/${id}?${opcional}")
-            }
+                onClick = {
+                    id = number
+                    opcional = numbers[number]
+                    navController.navigate("Detail/${id}?${opcional}")
+                }
+            )
         }
     }
 }
+
