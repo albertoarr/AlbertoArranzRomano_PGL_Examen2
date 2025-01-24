@@ -1,5 +1,6 @@
 package com.alberto.albertoarranzromano_pgl_examen2.views
 
+import android.widget.TextView
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -18,6 +19,7 @@ import com.alberto.albertoarranzromano_pgl_examen2.components.NavigationButton
 import com.alberto.albertoarranzromano_pgl_examen2.components.TitleBar
 import com.alberto.albertoarranzromano_pgl_examen2.components.TitleView
 import com.alberto.albertoarranzromano_pgl_examen2.ui.theme.alumno1
+import com.alberto.albertoarranzromano_pgl_examen2.ui.theme.background1
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,7 +35,7 @@ fun DetailView(navController: NavController, id:Int, opcional: String) {
                     )
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color.DarkGray
+                    containerColor = background1
                 ),
                 navigationIcon = {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
@@ -52,16 +54,15 @@ fun DetailView(navController: NavController, id:Int, opcional: String) {
 // Segunda vista
 @Composable
 fun DetailHomeView(navController: NavController, id: Int, opcional: String) {
-    TitleView(name = "DetailView")
     //id
-    Text(text = id.toString())
-    // Lo que se escribe en el textfield
-    Text(text = opcional)
+    TitleView(name = id.toString())
+    // Traduccion
+    TitleView(name = opcional)
     Column{
         // Botón para volver a Home sin revisar el Stack
         NavigationButton("Ir a Home",
-            Color.LightGray,
-            Color.Black,
+            color = Color.Black,
+            backColor = alumno1,
             onClick = {
             navController.navigate("Home")
         })

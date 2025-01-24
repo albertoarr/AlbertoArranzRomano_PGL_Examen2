@@ -42,7 +42,6 @@ fun NumberView(navController: NavController) {
                 )
             )
         }
-
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)){
             DetailNumberView(navController)
