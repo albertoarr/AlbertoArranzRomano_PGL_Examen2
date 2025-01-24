@@ -63,7 +63,7 @@ fun DetailNumberView(navController: NavController) {
                 color = Color.Black,
                 onClick = {
                     id = number
-                    opcional = numbers[number]
+                    opcional = numbers[number-1]
                     navController.navigate("Detail/${id}?${opcional}")
                 }
             )
