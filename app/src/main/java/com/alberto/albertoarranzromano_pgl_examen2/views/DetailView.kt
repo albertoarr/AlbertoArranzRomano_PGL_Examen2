@@ -13,11 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
-import com.alberto.albertoarranzromano_pgl_examen2.components.ActionButton
 import com.alberto.albertoarranzromano_pgl_examen2.components.MainIconButton
 import com.alberto.albertoarranzromano_pgl_examen2.components.NavigationButton
 import com.alberto.albertoarranzromano_pgl_examen2.components.TitleBar
 import com.alberto.albertoarranzromano_pgl_examen2.components.TitleView
+import com.alberto.albertoarranzromano_pgl_examen2.ui.theme.alumno1
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,7 +26,12 @@ fun DetailView(navController: NavController, id:Int, opcional: String) {
     Scaffold (
         topBar = {
             CenterAlignedTopAppBar(
-                title = { TitleBar(name = "DETAIL")},
+                title = {
+                    TitleBar(
+                        name = "Aprende números en inglés",
+                        color = alumno1
+                    )
+                },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.DarkGray
                 ),
@@ -37,11 +42,7 @@ fun DetailView(navController: NavController, id:Int, opcional: String) {
                     }
                 }
             )
-        },
-        floatingActionButton = {
-            ActionButton()
         }
-
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)){
             DetailHomeView(navController, id, opcional)
@@ -59,8 +60,10 @@ fun DetailHomeView(navController: NavController, id: Int, opcional: String) {
     Text(text = opcional)
     Column{
         // Botón para volver a Home sin revisar el Stack
-        NavigationButton("Ir a Home", Color.LightGray, Color.Black){
+        NavigationButton("Ir a Home", Color.LightGray, Color.Black, {
             navController.navigate("Home")
+        }) {
+            navController.navigate("")
         }
     }
 }

@@ -13,7 +13,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
-fun NavigationButton(name: String, backColor: Color, color: Color, onClick:() -> Unit){
+fun NavigationButton(
+    name: String,
+    backColor: Color,
+    color: Color,
+    onClick: () -> Unit,
+    function: () -> Unit
+){
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
@@ -21,9 +27,11 @@ fun NavigationButton(name: String, backColor: Color, color: Color, onClick:() ->
             containerColor = backColor
         )
     ) {
-        Text(text= name)
+        Text(text=name)
     }
 }
+
+
 
 @Composable
 fun ActionButton(){
